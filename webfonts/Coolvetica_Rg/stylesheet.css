@@ -1,0 +1,65 @@
+@font-face {
+	font-family: 'Coolvetica Rg';
+	src: url('Coolvetica Rg.eot');
+	src: url('Coolvetica Rg.eot?#iefix') format('embedded-opentype'),
+		url('Coolvetica Rg.woff') format('woff');
+}body footer {
+}
+body footer {
+}
+body footer {
+	background-color: #FFFFFF;
+}
+.navbar.navbar-expand-lg.navbar-white.bg-white.sticky-top .container-fluid .navbar-brand {
+	font-family: "Coolvetica Rg";
+	color: #000000;
+}
+.navbar-nav.mr-auto .nav-item .nav-link {
+	color: #000000;
+	font-family: "Coolvetica Rg";
+}
+.image-text-container .herosection-welcome .theoneabovejejak {
+	color: #000000;
+	font-family: "Coolvetica Rg";
+	font-size: xx-large;
+}
+.card.col-md-4.col-xl-12 .card-body .btn.btn-primary {
+}
+.row .col-xl-6 .card.col-md-4.col-xl-12 {
+	width: auto;
+	height: auto;
+	background-color: #8A9822;
+}
+.card-body.text-center.d-flex.flex-column .mt-auto .btn.btn-primary {
+	background-color: #8E9C26;
+}
+.card-body.d-flex.flex-column .mt-auto.text-center .btn.btn-primary.px-4 {
+	background-color: #8E9C26;
+}
+.container-fluid h1 {
+	text-align: center;
+}
+.gallery-item .gallery-caption .caption-desc {
+	color: #FFFFFF;
+}
+#heritageModal .modal-content {
+}
+.container #heritage-container {
+}
+
+.welcome-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between items */
+}
+
+.side-image {
+  width: 100px; /* adjust as needed */
+  height: auto;
+}
+
+.image-text-container {
+  text-align: center;
+}
+

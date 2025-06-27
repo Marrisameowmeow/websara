@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Historical Places Page</title>
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/Treasure Map icon in Ice Cream Style.jpg" alt="" width="70" height="57" class="img-fluid"/>
+                Jejak Warisan Penang&nbsp;
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <ul class="navbar-nav mr-auto">
+  
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+					
+					<li class="nav-item"><a class="nav-link" href="AboutPage.html">About</a></li>
+				
+                 <li class="nav-item"><a class="nav-link" href="HistoricalPlacesPage.html">Historical Places</a></li>
+				
+				 <li class="nav-item"><a class="nav-link" href="CulturalHeritagepage.html">Cultural Heritage</a></li>
+				
+				 <li class="nav-item"><a class="nav-link" href="Blogpage.html">Blog</a></li>
+				</ul>
+                       
+            </div>
+        </div>
+    </nav>
+		<br>
+		<div class="container-fluid">
+    <!-- Hero Image -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-12 text-center">
+            <img src="images/historicalplaces.jpg" class="img-fluid" alt="Historical Places in Penang" style="max-width: 1200px;">
+        </div>
+    </div>
+			<br>			<h1>Penang is divided into 2 places , which is :&nbsp; &nbsp;</h1>
+			<br>
+			<br>
+			
+			
+    <!-- Cards Section -->
+    <div class="row">
+        <!-- Penang Island Card -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top img-fluid rounded-top" src="images/Untitled design.png" alt="Penang Island">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center">Penang Island</h5>
+                    <div class="mt-auto text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mainland Card -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top img-fluid rounded-top" src="images/Untitled design (1).png" alt="Penang Mainland">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center">Mainland</h5>
+                    <div class="mt-auto text-center"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	
+	<main>
+		<div id="place-modal" class="modal-overlay" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog" role="dialog" aria-modal="true">
+    <button class="modal-close-button" aria-label="Close modal">&times;</button>
+    <img class="modal-image" alt="" />
+    <h2 id="modal-title" class="modal-title"></h2>
+    <p id="modal-desc" class="modal-description"></p>
+    <div class="modal-location">
+      <span class="material-icons" aria-hidden="true">Location:</span>
+      <span id="modal-location-text"></span>
+    </div>
+  </div>
+</div>
+     <section id="ancient" class="container" aria-label="Ancient Historical Places">
+      <div class="places-grid">
+        <article class="place-card" tabindex="0" role="button" data-title="Fort Cornwallis" data-img="images/Fort-Cornwallis-1.png" data-description="The largest standing fort in Malaysia, built by the British in the late 18th century, featuring old cannons and historical exhibits near the Georgetown waterfront." data-location="Georgetown , Penang">
+          <img src="images/Fort-Cornwallis-1.png" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Fort Cornwallis&nbsp;</h3>
+            <p class="place-description">The largest standing fort in Malaysia, built by the British in the late 18th century, featuring old cannons and historical exhibits near the Georgetown waterfront.</p>
+            <div class="place-location" aria-label="Location of Fort Cornwallis">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button" data-title="Penang Peranakan Mansion" data-img="images/Pinang_Peranakan_Mansion_(I).jpg" data-description="A beautifully restored heritage home that reflects the opulent lifestyle of the Straits Chinese (Peranakan) community, complete with antiques and traditional décor." data-location="Georgetown , Penang">
+          <img src="images/Pinang_Peranakan_Mansion_(I).jpg" alt="#" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Penang Peranakan Mansion&nbsp;</h3>
+            <p class="place-description">A beautifully restored heritage home that reflects the opulent lifestyle of the Straits Chinese (Peranakan) community, complete with antiques and traditional décor.</p>
+            <div class="place-location" aria-label="Location of Penang Peranakan Mansion">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button" data-title="Eastern & Oriental Hotel" data-img="images/meimei.jpg" data-description="A luxurious colonial-style hotel established in 1885, famous for hosting celebrities and dignitaries, offering timeless elegance in the heart of George Town." data-location="Georgetown , Penang">
+          <img src="images/meimei.jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Eastern and Oriental Hotel</h3>
+            <p class="place-description">A luxurious colonial-style hotel established in 1885, famous for hosting celebrities and dignitaries, offering timeless elegance in the heart of George Town.</p>
+            <div class="place-location" aria-label="Location of Eastern & Oriental Hotel">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+			 </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="medieval" class="container" style="margin-top: 64px;">
+      <div class="places-grid">
+        <article class="place-card" tabindex="0" role="button" data-title="Rumah Kelahiran P.Ramlee" data-img="images/ram.jpg" data-description="The childhood home of Malaysia’s legendary entertainer, P. Ramlee, now a museum featuring his personal items, films, and musical legacy." data-location="Georgetown , Penang">
+          <img src="images/ram.jpg" alt="-" class="place-image"/>
+          <div class="place-content">
+            <h3 class="place-title">Rumah Kelahiran P.Ramlee</h3>
+            <p class="place-description">The childhood home of Malaysia’s legendary entertainer, P. Ramlee, now a museum featuring his personal items, films, and musical legacy.</p>
+            <div class="place-location" aria-label="Location of Rumah Kelahiran P.Ramlee">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button" data-title="Penang War Museum" data-img="images/haha.jpg" data-description="Located on Bukit Batu Maung, this former British fort turned museum showcases Malaysia’s wartime history and WWII artifacts in a chilling, immersive environment." data-location="Bukit Batu Maung, Penang">
+          <img src="images/haha.jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Penang War Museum</h3>
+            <p class="place-description">Located on Bukit Batu Maung, this former British fort turned museum showcases Malaysia’s wartime history and WWII artifacts in a chilling, immersive environment.</p>
+            <div class="place-location" aria-label="Location of Penang War Museum">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Bukit Batu Maung, Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button" data-title="Town Hall, Penang" data-img="images/Town_Hall_of_Penang_(I).jpg" data-description="A colonial-era building in Esplanade that once hosted elite social events, now used for exhibitions and official functions, showcasing classic British architecture." data-location="Georgetown.Penang">
+          <img src="images/Town_Hall_of_Penang_(I).jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Town Hall, Penang</h3>
+            <p class="place-description">A colonial-era building in Esplanade that once hosted elite social events, now used for exhibitions and official functions, showcasing classic British architecture.</p>
+            <div class="place-location" aria-label="Location of Town Hall, Penang">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+          </div>
+        </article>
+      </div>
+    </section> 
+		
+		<br>
+		<br>
+		<section id="mimimi" class="container" aria-label="Ancient Historical Places">
+      <div class="places-grid">
+        <article class="place-card" tabindex="0" role="button" data-title="Pulau Aman" data-img="images/Pulau-Aman-1.jpg" data-description="A peaceful fishing village island off the coast of Penang, known for its fresh seafood, traditional Malay lifestyle, and scenic views." data-location="Pulau Aman,Penang">
+          <img src="images/Pulau-Aman-1.jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Pulau Aman</h3>
+            <p class="place-description">A peaceful fishing village island off the coast of Penang, known for its fresh seafood, traditional Malay lifestyle, and scenic views.</p>
+            <div class="place-location" aria-label="Location of the Pulau Aman">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Pulau Aman,Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button"  data-title="Blue Mansion (Cheong Fatt Tze Mansion)" data-img="images/hai.jpg" data-description="An iconic indigo-blue heritage building blending Chinese and Western architectural styles, once the home of a wealthy Chinese merchant, now a boutique hotel and museum." data-location="Georgetown , Penang">
+          <img src="images/hai.jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Blue Mansion (Cheong Fatt Tze Mansion)</h3>
+            <p class="place-description">An iconic indigo-blue heritage building blending Chinese and Western architectural styles, once the home of a wealthy Chinese merchant, now a boutique hotel and museum.</p>
+            <div class="place-location" aria-label="Location of Blue Mansion (Cheong Fatt Tze Mansion)">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+          </div>
+        </article>
+        <article class="place-card" tabindex="0" role="button" data-title="Masjid Jamek (Acheen Street Mosque)" data-img="images/masjid.jpg" data-description="One of the oldest mosques in Penang, built by Acehnese settlers in the early 1800s, reflecting a blend of Islamic and Southeast Asian architecture." data-location="Georgetown , Penang">
+          <img src="images/masjid.jpg" alt="-" class="place-image" />
+          <div class="place-content">
+            <h3 class="place-title">Masjid Jamek (Acheen Street Mosque)</h3>
+            <p class="place-description">One of the oldest mosques in Penang, built by Acehnese settlers in the early 1800s, reflecting a blend of Islamic and Southeast Asian architecture.</p>
+            <div class="place-location" aria-label="Location of Masjid Jamek (Acheen Street Mosque)">
+              <span class="material-icons" aria-hidden="true">Location:</span>
+              Georgetown , Penang
+            </div>
+			 </div>
+        </article>
+      </div>
+    </section>
+		
+		  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('place-modal');
+  const modalTitle = modal.querySelector('#modal-title');
+  const modalImage = modal.querySelector('.modal-image');
+  const modalDesc = modal.querySelector('#modal-desc');
+  const modalLocationText = modal.querySelector('#modal-location-text');
+  const closeButton = modal.querySelector('.modal-close-button');
+
+  let lastFocusedElement = null;
+
+  function openModal(e) {
+    const card = e.currentTarget;
+    lastFocusedElement = document.activeElement;
+
+    modalTitle.textContent = card.getAttribute('data-title') || '';
+    modalImage.src = card.getAttribute('data-img') || '';
+    modalImage.alt = card.querySelector('img').alt || '';
+    modalDesc.textContent = card.getAttribute('data-description') || '';
+    modalLocationText.textContent = card.getAttribute('data-location') || '';
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.focus();
+    trapFocus(modal);
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }
+
+  document.querySelectorAll('.place-card').forEach(card => {
+    card.addEventListener('click', openModal);
+    card.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(e);
+      }
+    });
+  });
+
+  closeButton.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => e.target === modal && closeModal());
+  document.addEventListener('keydown', e => e.key === 'Escape' && modal.classList.contains('active') && closeModal());
+
+  function trapFocus(element) {
+    const focusableElements = element.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length -1];
+    
+    element.addEventListener('keydown', function(e) {
+      if(e.key !== 'Tab') return;
+      if(e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if(!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    });
+  }
+});
+  </script>
+	
+		
+
+	</main>
+	
+<footer>
+  <div class="row align-items-center"> <!-- Added align-items-center to vertically center content -->
+    <!-- New column for left image -->
+    <div class="col-auto"> <!-- auto width column for the new image -->
+      <img src="images/2025.jpg" width="285" height="325" alt="Left Image"/>
+    </div>
+
+    <!-- Your existing social link images -->
+    <div class="col-auto ms-auto"> <!-- ms-auto pushes these to the right -->
+      <div class="d-flex"> <!-- Flex container for social links -->
+        <div class="me-3"> <!-- Right margin for spacing -->
+          <img src="images/hifi.gif" width="800" height="325" alt=""/>
+        </div>
+        <div>
+          <img src="images/new.jpg" alt="" width="780" height="325" usemap="#Map"/>
+          <map name="Map">
+            <area shape="rect" coords="26,140,112,219" href="https://www.youtube.com/@enginehead" target="_blank">
+            <area shape="rect" coords="126,134,221,223" href="https://www.tumblr.com/blog/jejak-warisan-penang" target="_blank">
+            <area shape="rect" coords="233,134,331,230" href="https://t.me/JejakWarisanPenanghttps://t.me/JejakWarisanPenang" target="_blank">
+            <area shape="rect" coords="340,134,435,224" href="https://uk.pinterest.com/engineheadhaha/" target="_blank">
+          </map>
+
+
+        </div>
+      </div>
+    </div>
+  </div> 
+</footer>
+
+
+</body>
+
+</html>

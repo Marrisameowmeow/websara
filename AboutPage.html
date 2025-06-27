@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AboutPage</title>
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+<style>
+	
+    .container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+       .content-box {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    height: 100%; /* Make sure boxes can stretch with content */
+    align-items: stretch; /* Force image and text to same height */
+}
+
+.content-text {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centre text */
+}
+
+.content-image {
+    width: 300px;
+    object-fit: cover;
+    height: 100%; /* Force image to match height of text box */
+    display: block;
+}
+
+        @media (max-width: 768px) {
+            .content-box {
+                flex-direction: column-reverse;
+            }
+
+            .content-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+	
+	
+	</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/Treasure Map icon in Ice Cream Style.jpg" alt="" width="70" height="57" class="img-fluid"/>
+                Jejak Warisan Penang&nbsp;
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <ul class="navbar-nav mr-auto">
+
+                   <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+					
+					<li class="nav-item"><a class="nav-link" href="AboutPage.html">About</a></li>
+				
+                 <li class="nav-item"><a class="nav-link" href="HistoricalPlacesPage.html">Historical Places</a></li>
+				
+				 <li class="nav-item"><a class="nav-link" href="CulturalHeritagepage.html">Cultural Heritage</a></li>
+				
+				 <li class="nav-item"><a class="nav-link" href="BlogPage.html">Blog</a></li>
+				</ul>
+                       
+            </div>
+        </div>
+    </nav>
+		<div class="container-fluid mt-4">
+    <!-- Hero Image -->
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <img src="images/jejakwarisanpenang.jpg" class="img-fluid rounded" alt="Penang Heritage">
+        </div>
+    </div>
+	</div>
+	
+	<div class="container">
+  <br>
+
+        <!-- Box 1 -->
+        <div class="content-box">
+            <div class="content-text">
+                <h2>Woah , what is this magnificent island in Malaysia!?!?!</h2>
+                <p>Penang Island is a vibrant and multicultural island in Malaysia, known for its rich history, delicious street food, beautiful beaches, and heritage buildings. It's a popular travel destination blending tradition and modern life.</p>
+                <p>With its blend of cultures, traditions, and natural beauty, Penang Island is a must-visit destination for those who love food, art, and history!</p>
+            </div>
+            <img class="content-image" src="images/mak.png" alt="-">
+        </div>
+
+        <!-- Box 2 -->
+        <div class="content-box">
+            <div class="content-text">
+                <h2>About Dev</h2>
+                <p>This web was independantly created by Marrisa , a person who loves both digital art and cats. :D</p>
+            </div>
+            <img class="content-image" src="images/yo.png" alt="-">
+        </div>
+		
+		<div class="content-box">
+            <div class="content-text">
+                <h2>Aim of Jejak Warisan penang</h2>
+                <p>Jejak Warisan Penang is a website dedicated to exploring and preserving Penang’s rich cultural heritage. It aims to showcase the island’s traditions, historical sites, local arts, and the fashion, helping visitors and locals connect with Penang’s unique identity.</p>
+            </div>
+            <img class="content-image" src="images/mainland.png" alt="-">
+        </div>
+
+    </div>
+
+	<footer>
+  <div class="row align-items-center"> <!-- Added align-items-center to vertically center content -->
+    <!-- New column for left image -->
+    <div class="col-auto"> <!-- auto width column for the new image -->
+      <img src="images/2025.jpg" width="285" height="325" alt="Left Image"/>
+    </div>
+
+    <!-- Your existing social link images -->
+    <div class="col-auto ms-auto"> <!-- ms-auto pushes these to the right -->
+      <div class="d-flex"> <!-- Flex container for social links -->
+        <div class="me-3"> <!-- Right margin for spacing -->
+          <img src="images/hifi.gif" width="800" height="325" alt=""/>
+        </div>
+        <div>
+          <img src="images/new.jpg" alt="" width="780" height="325" usemap="#Map"/>
+          <map name="Map">
+            <area shape="rect" coords="26,140,112,219" href="https://www.youtube.com/@enginehead" target="_blank">
+            <area shape="rect" coords="126,134,221,223" href="https://www.tumblr.com/blog/jejak-warisan-penang" target="_blank">
+            <area shape="rect" coords="233,134,331,230" href="https://t.me/JejakWarisanPenanghttps://t.me/JejakWarisanPenang" target="_blank">
+            <area shape="rect" coords="340,134,435,224" href="https://uk.pinterest.com/engineheadhaha/" target="_blank">
+          </map>
+
+
+        </div>
+      </div>
+    </div>
+  </div> 
+</footer>
+			</body>
+			</html>
+   

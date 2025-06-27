@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cultural Heritage Page</title>
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <style>
+    .heritage-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid #ddd;
+    }
+    .heritage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    .card-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 1.7rem;
+    }
+    .card-title {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .card-text {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .read-more {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 600;
+    }
+    .read-more:hover {
+      background: #0056b3;
+    }
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #333;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+	  /* Add these styles to your existing CSS */
+
+	  
+	  
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 900px;
+    }
+    .close-btn {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn:hover,
+    .close-btn:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .gallery-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .gallery-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .caption-title {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .caption-desc {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Lightbox modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-btn {
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+		
+		.read-more {
+    background-color: #66701B; 
+	color:#FFFFFF;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #4F5715; /* Darker shade on hover */
+	color:#FFFFFF;
+}
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="images/Treasure Map icon in Ice Cream Style.jpg" alt="" width="70" height="57" class="img-fluid"/>
+        Jejak Warisan Penang&nbsp;
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><br>
+		  <li class="nav-item"><a class="nav-link" href="AboutPage.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="HistoricalPlacesPage.html">Historical Places</a></li>
+          <li class="nav-item"><a class="nav-link" href="CulturalHeritagepage.html">Cultural Heritage</a></li>
+          <li class="nav-item"><a class="nav-link" href="BlogPage.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <img src="images/photo_2025-06-09_22-18-04.jpg" class="img-fluid rounded" alt="Penang Heritage">
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-container">
+    <h1 class="gallery-title">Photo Gallery</h1>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="images/lagenda.jpg" alt="-" class="gallery-img">
+        <div class="gallery-caption">
+          <h3 class="caption-title">Lagenda Cafe</h3>
+          <p class="caption-desc">Café Lagenda offers the best traditional and fusion Asian cuisines with a delightful, visually stunning affordable dining experience.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="images/kebaya.jpg" alt="-" class="gallery-img">
+        <div class="gallery-caption">
+          <h3 class="caption-title">Baju Kebaya</h3>
+          <p class="caption-desc">Upper garment opened at the front that is traditionally made from lightweight fabrics </p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="images/gtf.png" alt="-" class="gallery-img">
+        <div class="gallery-caption">
+          <h3 class="caption-title">Georgetown Festival!!</h3>
+          <p class="caption-desc">Annual cultural festival held within the city of George Town in Penang, Malaysia.</p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="images/laksa.jpg" alt="Snow-covered mountain peak under blue sky" class="gallery-img">
+        <div class="gallery-caption">
+          <h3 class="caption-title">Assam Laksa</h3>
+          <p class="caption-desc">A specialty of the Malaysian island of Penang. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightbox-img" class="lightbox-img" src="#" alt="">
+    </div>
+    <div class="lightbox-nav">
+      <span class="lightbox-btn" onclick="changeImage(-1)">&#10094;</span>
+      <span class="lightbox-btn" onclick="changeImage(1)">&#10095;</span>
+    </div>
+  </div>
+<br>
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-3xl font-bold mb-4">Featured Heritage Sites</h2>
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="foodtraditions">Food Traditions</button>
+        <button class="filter-btn" data-filter="clothingtraditions">Clothing Traditions</button>
+        <button class="filter-btn" data-filter="performances">Performances</button>
+        <button class="filter-btn" data-filter="handcrafts">Handcrafts</button>
+      </div>
+    </div>
+    <div class="row" id="heritage-container"></div>
+  </div>
+
+  <div id="heritageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Heritage sites functionality
+    const heritageData = [
+      {
+        id: 1,
+        title: "Penang's Local Delicasies Restaurant",
+        image: "images/food.png",
+        shortDesc: "A fusion of Malay, Chinese, Indian, and Peranakan flavours, Penang's food traditions are a celebration of taste and heritage.",
+        longDesc: "Penang is often called the food capital of Malaysia, and for good reason. Its culinary heritage reflects centuries of multicultural influence—where spicy Malay sambals meet Chinese noodle dishes, Indian curries, and unique Peranakan (Nyonya) recipes. Dishes like char kway teow, asam laksa, and nasi kandar are more than just meals—they're living history, served from street hawkers to heritage cafés. Recipes are often passed down through generations, preserving not only taste but the stories and identities of the communities that created them.",
+        shops: "Lagenda Cafe , Irama Dining",
+        region: "foodtraditions"
+      },
+      {
+        id: 2,
+        title: "Wonders of Penang's Beautiful Boutique",
+        image: "images/clothing and aesthetic.png",
+        shortDesc: "Traditional attire in Penang reflects the diversity of its people, from elegant kebayas to vibrantly patterned sarees and cheongsams.",
+        longDesc: "Clothing traditions in Penang are a visual representation of its cultural mosaic. The Malay baju kurung and baju kebaya, the Chinese cheongsam, and the Indian sari and kurta are commonly worn during festivals and cultural events. Particularly distinctive is the Nyonya kebaya, often paired with intricately embroidered sarong. These garments are not only beautiful—they carry cultural symbolism, ancestral pride, and are often handmade using time-honoured techniques like batik or songket weaving, making them wearable works of art.",
+        shops: "Butik Bee Gee, Anya Kebaya",
+        region: "clothingtraditions"
+      },
+      {
+        id: 3,
+        title: "Rhythms of Heritage",
+        image: "images/performances.png",
+        shortDesc: "Immerse yourself in the living symphony of cultures that have shaped our land for generations. The Rhythms of Heritage pulse through every festival, ceremony, and gathering—where ancient melodies blend seamlessly with modern interpretations. From the resonant beats of traditional gendang drums to the lilting strains of bamboo flutes, each performance is a testament to communities who have kept their art alive across centuries.",
+        longDesc: "Penang's performing arts scene thrives on its multicultural identity. From the rhythmic moves of traditional Malay zapin dances to the elegance of Chinese opera and the vibrant beats of Indian bharatanatyam, performances reflect the island's diverse roots. Puppet shows (wayang kulit), lion dances, and dikir barat are often featured during festivals. These performances are more than entertainment—they are cultural expressions, preserving ancient tales, religious stories, and local folklore, passed down through generations.",
+        shops: "Not a shop , but its mainly festivals: Georgetwon festival (held annually)",
+        region: "performances"
+      },
+      {
+        id: 4,
+        title: "Timeless Touches of Tradition",
+        image: "images/kraftangan.png",
+        shortDesc: "Penang's handicrafts showcase artistry through handmade batik, wood carvings, and woven products rooted in tradition. In a world racing toward the future, the Timeless Touches of Traditions remind us of the beauty in continuity. Each handmade artifact—be it a ceremonial keris, delicately embroidered kain songket, or heirloom porcelain—tells a story of patient craftsmanship and reverence for the old ways.",
+        longDesc: "Kraftangan in Penang is a testament to the creativity and craftsmanship of its people. Artisans produce a wide range of traditional crafts, including batik textiles, rattan weaving, wood and stone carvings, and songket (gold-threaded fabric). These handicrafts are often created using traditional methods and tools, representing skills passed down through families. More than souvenirs, these items preserve cultural identity and serve as a tactile connection to Penang's rich heritage and history.",
+        shops: "Seang Hin Leong's shop (rattan weaver) ,  Haja Mohideen Mohammed Shariff (songkok maker)",
+        region: "handcrafts"
+      },
+      {
+        id: 5,
+        title: "Penang's Famous Sharbat",
+        image: "images/sharbat.jpg",
+        shortDesc: "A vibrant and refreshing sweet drink, Air Sharbat is a staple in Penang’s traditional feasts and street markets, especially popular during festive seasons and hot days.",
+        longDesc: "Air Sharbat in Penang is a colorful, sweetened beverage typically made with rose syrup or herbal cordials and mixed with ice, basil seeds, lime, or even fruits. It holds a special place in Malaysian and Penangite heritage, especially during Ramadan bazaars and cultural events. Often sold in large drink containers at hawker stalls or roadside vendors, Air Sharbat is more than just a thirst-quencher—it's a nostalgic symbol of togetherness, celebration, and local flavor, enjoyed by people of all ages and backgrounds..",
+        shops: "Ais Tingkap Lebuh Tamil, Georgetown",
+        region: "foodtraditions"
+      },
+      {
+        id: 6,
+        title: "Ais Kacang : Local's Favourite",
+        image: "images/Ais-kacang.jpg",
+        shortDesc: "Ais Kacang is a beloved Penang dessert made from shaved ice, sweet syrups, and colorful toppings, offering a burst of flavor and a cool escape from the tropical heat..",
+        longDesc: "Known also as “ABC” (Air Batu Campur), Ais Kacang is a signature Malaysian dessert that shines brightly in Penang’s food scene. It features finely shaved ice drenched in rose syrup and gula Melaka (palm sugar syrup), topped with an array of delicious ingredients like red beans, sweet corn, grass jelly, cendol, and even ice cream. Every spoonful is a delightful surprise of textures and flavors. Ais Kacang isn’t just a treat—it’s a representation of Malaysia’s multicultural roots and Penang’s reputation as a food paradise, often found in hawker centers and night markets.",
+        shops: "Swatow Lane Ice Kacang, PAKYA D Bendang ",
+        region: "foodtraditions"
+      }
+	  ,
+{
+  id: 8,
+  title: "Heritage Street Art",
+  image: "images/po.jpg",
+  shortDesc: "On every corner and alleyway, Heritage Street Art transforms blank walls into vivid stories. These striking murals capture the spirit of multicultural neighborhoods, immortalizing local legends, forgotten trades, and everyday life in vibrant color. From larger-than-life portraits of pioneering figures to whimsical depictions of street hawkers and childhood games, this open-air gallery bridges generations and invites reflection.",
+  longDesc: "Penang's street art scene is world-renowned, combining history, humor, and artistry. From Ernest Zacharevic’s murals to hidden gems in George Town's alleys, these artworks tell stories of daily life, local legends, and cultural pride.",
+  shops: "Street Art Locations in George Town",
+  region: "performances"
+},
+{
+  id: 9,
+  title: "Penang’s Capal: Heritage in Every Step",
+  image: "images/hlo.jpg",
+  shortDesc: "Penang’s Capal are iconic handmade leather sandals that celebrate Malay heritage. Each pair is a fusion of timeless style, skilled craftsmanship, and cultural pride.",
+  longDesc: "Rooted in centuries of Malay tradition, Penang’s Capal are more than just footwear—they are a symbol of cultural identity and artisanal excellence.",
+  shops: "Capal Jago Gemilang Kepala Batas",
+  region: "clothingtraditions"
+},
+{
+  id: 10,
+  title: "Peranakan Jewelry Craft",
+  image: "images/bead.jpg",
+  shortDesc: "Peranakan Jewelry Craft is an art of extraordinary refinement, born from centuries of cultural fusion. These ornate pieces—gleaming gold hairpins, gem-encrusted brooches, and filigree necklaces—once symbolized wealth, status, and matrimonial ties within Peranakan communities. ",
+  longDesc: "Peranakan jewelry is famous for its elaborate designs and skilled craftsmanship. From kerongsang brooches to hairpins, these ornaments were status symbols and family heirlooms.",
+  shops: "Pinang Peranakan Mansion Gift Shop",
+  region: "handcrafts"
+},
+{
+  id: 11,
+  title: "Jawi Peranakan Heritage",
+  image: "images/jawi.jpg",
+  shortDesc: "The Jawi Peranakan Heritage is a rich tapestry woven from the intermingling of Malay and South Asian cultures. This unique community flourished through trade, faith, and family ties, creating distinctive customs that endure to this day. From intricate calligraphy and elegant attire to culinary treasures passed down through the ages, Jawi Peranakan traditions reflect a harmonious blend of Islamic devotion and local sensibilities. ",
+  longDesc: "The Jawi Peranakan are descendants of Indian Muslim traders and Malays who developed a distinct cultural identity. Their heritage is visible in architecture, cuisine, and attire, such as the baju kurung Teluk Belanga. Their food, like nasi kandar and murtabak, is now central to Penang’s culinary landscape.",
+  shops: "Jawi Peranakan Mansion ",
+  region: "performances"
+},
+{
+  id: 12,
+  title: "Traditional Malay Weaving",
+  image: "images/songket.jpg",
+  shortDesc: "The art of creating songket and kain pelikat fabrics. Traditional Malay Weaving is an age-old practice that transforms humble threads into expressions of identity and artistry. Skilled weavers create exquisite textiles such as songket and tenun, often incorporating metallic threads that shimmer with ceremonial splendor. Each pattern tells a story—floral motifs for prosperity, geometric designs for protection—woven patiently on wooden looms. ",
+  longDesc: "Weaving in Penang is an age-old tradition involving gold and silver threads woven into luxurious textiles. These are often worn during weddings and festivals.",
+  shops: "Songket Gallery",
+  region: "handcrafts"
+},
+{
+  id: 13,
+  title: "Wear the Story of Heritage.",
+  image: "images/yuni.png",
+  shortDesc: "Discover exquisite heritage clothing handcrafted with passion. From elegant kebayas to authentic batik and songket, each piece celebrates timeless Malaysian tradition. Experience culture, style, and artistry—only at Khatam Store.",
+  longDesc: "From hand-embroidered kebayas to timeless batik and songket pieces, each garment tells a story of cultural artistry passed down through generations.",
+  shops: "Khatam Warisan Store , Georgetown , Penang",
+  region: "clothingtraditions"
+}
+
+    ];
+
+    const heritageContainer = document.getElementById('heritage-container');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const modal = document.getElementById('heritageModal');
+    const modalBody = document.getElementById('modalBody');
+    const closeBtn = document.querySelector('.close-btn');
+
+    function displayHeritage(region = 'all') {
+      heritageContainer.innerHTML = '';
+      const filteredData = region === 'all' ? heritageData : heritageData.filter(item => item.region === region);
+
+      filteredData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'col-12 col-md-6 col-lg-4 mb-4';
+        card.innerHTML = `
+          <div class="heritage-card h-100">
+            <img src="${item.image}" alt="${item.title}" class="card-img">
+            <div class="card-body">
+              <h3 class="card-title">${item.title}</h3>
+              <p class="card-text">${item.shortDesc}</p>
+              <a href="#" class="read-more" data-id="${item.id}">Read More</a>
+            </div>
+          </div>
+        `;
+        heritageContainer.appendChild(card);
+      });
+
+      document.querySelectorAll('.read-more').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const id = parseInt(this.getAttribute('data-id'));
+          openModal(id);
+        });
+      });
+    }
+
+    function openModal(id) {
+      const item = heritageData.find(item => item.id === id);
+      if (item) {
+        modalBody.innerHTML = `
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <img src="${item.image}" alt="${item.title}" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+              <h2 class="font-weight-bold mb-3">${item.title}</h2>
+              <p>${item.longDesc}</p>
+              <div class="row mt-4">
+                <div class="col-6"><strong>Shops:</strong><br>${item.shops}</div>
+              </div>
+            </div>
+          </div>
+        `;
+        modal.style.display = 'block';
+      }
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        displayHeritage(this.getAttribute('data-filter'));
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    displayHeritage();
+	  
+	  
+  </script>
+	
+	<div class="video-section">
+  <video controls>
+    <source src="images/penang.mp4" type="video/mp4">
+  </video>
+  <h2 class="man" class="fade-in">Watch this epic CULTURAL HERITAGE video!!! Credits to Penang Global Tourism on YouTube.</h2>
+</div>
+	<br>
+	<br>
+	
+	<footer>
+  <div class="row align-items-center"> <!-- Added align-items-center to vertically center content -->
+    <!-- New column for left image -->
+    <div class="col-auto"> <!-- auto width column for the new image -->
+      <img src="images/2025.jpg" width="285" height="325" alt="Left Image"/>
+    </div>
+
+    <!-- Your existing social link images -->
+    <div class="col-auto ms-auto"> <!-- ms-auto pushes these to the right -->
+      <div class="d-flex"> <!-- Flex container for social links -->
+        <div class="me-3"> <!-- Right margin for spacing -->
+          <img src="images/hifi.gif" width="800" height="325" alt=""/>
+        </div>
+        <div>
+          <img src="images/new.jpg" alt="" width="780" height="325" usemap="#Map"/>
+          <map name="Map">
+            <area shape="rect" coords="26,140,112,219" href="https://www.youtube.com/@enginehead" target="_blank">
+            <area shape="rect" coords="126,134,221,223" href="https://www.tumblr.com/blog/jejak-warisan-penang" target="_blank">
+            <area shape="rect" coords="233,134,331,230" href="https://t.me/JejakWarisanPenanghttps://t.me/JejakWarisanPenang" target="_blank">
+            <area shape="rect" coords="340,134,435,224" href="https://uk.pinterest.com/engineheadhaha/" target="_blank">
+          </map>
+
+
+        </div>
+      </div>
+    </div>
+  </div> 
+</footer>
+	
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>

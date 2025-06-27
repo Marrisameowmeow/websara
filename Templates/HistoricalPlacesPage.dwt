@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>About Page</title>
+<!-- TemplateEndEditable -->
+<link href="../css/bootstrap-4.4.1.css" rel="stylesheet">
+<link href="../styles.css" rel="stylesheet" type="text/css">
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+	<body>
+<div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="../images/Treasure Map icon in Ice Cream Style.jpg" alt="" width="70" height="57" class="img-fluid" />Jejak Warisan Penang&nbsp;
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home&nbsp;</a>
+            </li>
+
+            <div class="dropdown show">
+              <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">About</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">About Penang</a>
+                <a class="dropdown-item" href="#">Contact Info</a>
+              </div>
+            </div>
+
+            <div class="dropdown show">
+              <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Historical Places&nbsp;&nbsp;</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Seberang Perai District</a>
+                <a class="dropdown-item" href="#">Penang Island District</a>
+              </div>
+            </div>
+
+            <div class="dropdown show">
+              <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cultural Heritage&nbsp;&nbsp;</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Food Traditions</a>
+                <a class="dropdown-item" href="#">Clothing Traditions</a>
+                <a class="dropdown-item" href="#">Performances</a>
+                <a class="dropdown-item" href="#">Local handcrafts</a>
+              </div>
+            </div>
+
+            <div class="dropdown show">
+              <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog&nbsp;</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Travel Guide</a>
+                <a class="dropdown-item" href="#">Best Photosenic Places</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div> <!-- End of .container -->
+</div> 
+  <!-- End of .container-fluid --><br>
+<br>
+		<br>
+		<table width="1200" border="1" cellspacing="1" cellpadding="1">
+			<table style="margin: 0 auto;"></table>
+          <td colspan="4" style="text-align: center;"><img src="../images/historicalplaces.jpg" width="1200" height="768" alt="" style="display: block; margin: 0 auto;" />
+			  <br>
+			  <br>
+            <div class="row">
+                <div class="col-xl-6">
+                  <div class="card col-md-4 col-xl-12"> <img class="card-img-top" src="../images/Untitled design.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Seberang Perai (Mainland)</h5>
+                      <a href="#" class="btn btn-primary">Go somewhere</a> </div>
+                  </div>
+              </div>
+                <div class="col-xl-6">
+                  <div class="card col-md-4 col-xl-12"> <img class="card-img-top" src="../images/Untitled design (1).png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Penang Island</h5>
+                      <a href="#" class="btn btn-primary">Go somewhere</a> </div>
+                  </div>
+                </div>
+              </div>
+            <br>
+          <br>
+        <br></td>
+  <tbody>
+    <tr>
+      <td colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+
+</body>
+</html>
