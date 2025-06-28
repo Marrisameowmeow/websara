@@ -524,3 +524,32 @@ h1, h2, h3 {
     opacity: 1;
   }
 }
+
+.welcome-image {
+  max-width: 300px; /* adjust as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer .col-auto {
+  flex: 1 1 300px;
+  padding: 10px;
+}
